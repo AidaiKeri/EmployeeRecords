@@ -1,0 +1,23 @@
+﻿@model List<EmployeeRecordsSystem.Models.Employee>
+
+<h1>Employee List</h1>
+<a asp-controller="Home" asp-action="AddEmployee">Add New Employee</a>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Position</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var employee in Model)
+    {
+            <tr>
+                <td>@employee.Id</td>
+                <td>@employee.Name</td>
+                <td>@employee.Age</td>
+                <td>@employee.Position</td>
+                <td><a asp-controller="Home" asp-action="RemoveEmployee" asp-route-id="@employee.Id">Remove</a></td>
+            </tr>
+    }
+</table>
